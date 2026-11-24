@@ -28,7 +28,7 @@ prompt_value=prompt_template.invoke({
 
 print(prompt_value.to_messages())
 # you can inspect its messages using .to_messages() and .to_string() which provide the prompt representation in string format
-
+# output -> [SystemMessage(content='You are a python tutor', additional_kwargs={}, response_metadata={}), HumanMessage(content='Explain dictionary in simple terms', additional_kwargs={}, response_metadata={})]
 
 
 # Supply the value for the placeholder using the prompt template created above

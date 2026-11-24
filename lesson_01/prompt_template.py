@@ -13,6 +13,7 @@ chat_model_abstraction=ChatGroq(
 )
 #system and human starts in lowercase , required by the message-template API
 # using chatprompttemplate here , its method from_messages , dont use message class here as we want to deliberately learning template abstraction
+# we use chatprompttemplate when we want structured chat prompt with message roles
 prompt_template=ChatPromptTemplate.from_messages(
     [("system","You are a python tutor"),
      ("human","Explain {topic} in simple terms")
@@ -21,8 +22,11 @@ prompt_template=ChatPromptTemplate.from_messages(
 
 # Supply the value for the placeholder using the prompt template created above
 formatted_messages=prompt_template.format_messages(topic="dictionary")
+# returns a list of messages
+# can use this template again and again no need to create new everytime
 
 # Send the formatted messages to the model using the invoke standardized interfaces
+# returns AIMessage object
 response=chat_model_abstraction.invoke(formatted_messages)
 
 print(response.content)
