@@ -17,7 +17,7 @@ chat_model_abstraction=ChatGroq(
     temperature=0
 )
 #now we need to use this instance using invoke(input) for sending an input and receiving the response from langchain
-#.invoke() lanchains standardized interfaces
+#.invoke() lanchains standardized interfaces,runnable interfaces
 #instead of plain string for the role and message we use the langchain's message classes which provide this roles and messages in structured format
 #list is passed to invoke , which the model receives as conversation like structure
 #separate message roles allow us to provide instruction to model seperately from the user message
