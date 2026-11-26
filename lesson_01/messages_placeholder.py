@@ -15,6 +15,10 @@ chat_model_abstraction=ChatGroq(
 # using chatprompttemplate here , its method from_messages , dont use message class here as we want to deliberately learning template abstraction
 prompt_template=ChatPromptTemplate.from_messages(
     [("system","You are a helpful Python tutor."),
+    #  when we want to provide our conversation history dynamically to the ChatPromptTemplate, we use MessagePlaceholders 
+    # to insert our list of messages(list of langchain messages object) into template along with the latest user question , 
+    # both are supplied at run time using invoke on the prompt template and providing
+    # our previous conversation history as list of langchain message objects
      MessagesPlaceholder("chat_history"),
      ("human","{question}"),
     ]
